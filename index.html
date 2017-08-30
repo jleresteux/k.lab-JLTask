@@ -1,0 +1,28 @@
+<!Doctype HTML>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="./server.js"></script>
+    </head>
+    
+    <body>
+        
+        <button id="button">Search #MeinUnterricht</button> <!--button to launch app-->
+        <div id="content"></div> <!--div of result display-->
+
+        <script>
+            var content = document.getElementById("content"); 
+            $("button").click(function(){
+                
+                $.get("./search", function(data, status){ //ajax get to trigger search app
+                    if(status == "success"){
+                        content.textContent = data;
+                    }
+                });
+            });
+            
+          //  
+        </script>
+    
+    </body>
+</html>
